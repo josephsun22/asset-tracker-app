@@ -1,40 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Overview Instructions
 
-## Getting Started
+- Page router used
+- Try to use Chakra UI
+- State manage? useState hook
+- version control
 
-First, run the development server:
+## M1
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Backend:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+APIs
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- data structure: testing in postman
+  data I need: {rank, code, price, change, marketCap}
+- pass multiple query params using axios
+- params I need from api: {start - pagniation, limit - fetching first 25, sort, sort_dir}
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### frontend
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- loading page
+- mock max
+- card to show each record, 4 boxes in a card, 5 attributes need to be rendered: {rank, code, price, change, marketCap}
+- numbers need formatting, handle large numbers, Price column need aligned to right, bold/light font, Arrows symbol
+- images may be retrieved on server
+- SearchIcon, CloseIcon from chakra maybe useful for building search bar
+- Give a larger static size for the arrow container
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## M2
 
-## Learn More
+Sorting Logics
 
-To learn more about Next.js, take a look at the following resources:
+- State: {sortField, sortDirection} state changes will trigger api calls, re-sort list by selected value, also change the arrow direction accordingly.
+- Input delay: setTimeout in a useEffect hook, triggers after 2s user stop typing.
+- useCallback is used for data memorization, serves sorting feature
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Search Logics
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- useState hook for monitoring search input values
