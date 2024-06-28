@@ -37,7 +37,9 @@ const CardRow: React.FC<CardRowProps> = ({ rank, code, price, change, marketCap 
         justifyContent="center"
         mb={{ base: 2, md: 0 }}
       >
-        <Image boxSize="45px" src={`icon/${code.toLowerCase()}.png`} alt={code} marginRight="2" />
+        {code && (
+          <Image boxSize="45px" src={`icon/${code.toLowerCase()}.png`} alt={code} marginRight="2" />
+        )}
         <Box>
           <Text color="white" fontWeight="bold" fontSize="lg">
             {code}
